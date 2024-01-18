@@ -30,7 +30,18 @@ namespace TelegramBot
                 // True - не обрабатывать, False (стоит по умолчанию) - обрабаывать
                 ThrowPendingUpdates = false,
             };
+
+            using var cts = new CancellationTokenSource();
             
+            // UpdateHander - обработчик приходящих Update`ов
+            // ErrorHandler - обработчик ошибок, связанных с Bot API
+            _telegramBotClient.StartReceiving(UpdateHandler,ErrorHandler,cts.Token,_receiverOptions);// Запускаем бота
+            
+            var infoAboutBot = async _telegramBotClient.GetMeAsync(); // put info in var about our bot 
+            Console.WriteLine($"{infoAboutBot.FirstName} get start");
+
+            await Task.Delay(-1); //create infinity delay, for our bot working without timerest
+
         }
 
     }
