@@ -53,3 +53,32 @@ class Request
     [JsonPropertyName("messages")] 
     public List<Message> Messages { get; set; } = new();
 }
+
+class RequestData
+{
+    [JsonPropertyName("id")] 
+    public string Id { get; set; } = "";
+
+    [JsonPropertyName("object")]
+    public string Object { get; set; } = "";
+    
+    [JsonPropertyName("created")]
+    public ulong Created { get; set; }
+
+    [JsonPropertyName("choices")] 
+    public List<Choise> Choices { get; set; } = new();
+
+    [JsonPropertyName("usage")] 
+    public Usage Usage { get; set; } = new();
+
+}
+
+class Choise
+{
+    
+}
+
+class Usage
+{
+    
+}
