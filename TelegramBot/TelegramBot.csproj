@@ -9,7 +9,6 @@
 
     <ItemGroup>
       <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
-      <PackageReference Include="Telegram.Bot.Fabric" Version="1.0.5846.23609" />
     </ItemGroup>
 
 </Project>
