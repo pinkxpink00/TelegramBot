@@ -38,11 +38,18 @@ while (true)
 
 class Message
 {
-    [JsonPropertyName("role")] public string Role { get; set; }= "";
-    [JsonPropertyName("content")] public string Content { get; set; } = "";
+    [JsonPropertyName("role")] 
+    public string Role { get; set; }= "";
+    
+    [JsonPropertyName("content")] 
+    public string Content { get; set; } = "";
 }
 
 class Request
 {
+    [JsonPropertyName("model")] 
+    public string ModelId { get; set; } = "";
     
+    [JsonPropertyName("messages")] 
+    public List<Message> Messages { get; set; } = new();
 }
