@@ -1,10 +1,11 @@
 ﻿using System.Net.Http.Json;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json.Serialization;
+using System.Net.Http;
 
 
 // токен из личного кабинета
-string apiKey = "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";
+string apiKey = "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";
 
 // адрес api для взаимодействия с чат-ботом
 string endpoint = "https://api.openai.com/v1/chat/completions";
@@ -16,10 +17,11 @@ List<Message> messages = new List<Message>();
 var httpClient =  new HttpClient();
 
 // устанавливаем отправляемый в запросе токен
-httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer{apiKey}");
+httpClient.DefaultRequestHeaders.Add("Authorization",$"Bearer {apiKey}");
 
 while (true)
 {
+    
     // ввод сообщения пользователя
     Console.Write("User:");
     var userContent = Console.ReadLine();
@@ -36,7 +38,7 @@ while (true)
 
     var requestDate = new Request()
     {
-        ModelId = "gpt-3.5-turbo",
+        ModelId = "gpt-3.5-turbo-instruct",
         Messages = messages
     };
     using var response = await httpClient.PostAsJsonAsync(endpoint, requestDate);
